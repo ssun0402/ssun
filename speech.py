@@ -7,7 +7,7 @@ with sr.Microphone() as source :
     
     # 마이크로부터 오디오 읽기
     print("인식중.......")
-    audio_data = r.record(source, duration = 10)
+    audio_data = r.record(source, duration = 5)
     
     
     # 음성을 문자열로 전환
