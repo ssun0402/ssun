@@ -12,5 +12,5 @@ with sr.Microphone() as source :
     
     # 음성을 문자열로 전환
     text = r.recognize_google(audio_data)
-    print(".....음성 데이터 -> 텍스트.....")
+    print("....음성 데이터 -> 텍스트....")
     print(text)
