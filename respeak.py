@@ -38,8 +38,4 @@ except sr.UnknownValueError:
     txt = "다시 한 번 말씀해주시겠어요?"
     tts_kr = gTTS(txt, lang = 'ko', slow = False)
     tts_kr.save("voice.wav")
-    playsound.playsound("voice.wav")  
-    
-# Crtl + c 누르면 음성 인식 멈춤
-#except KeyboardInterrupt: 
-    #pass
+    playsound.playsound("voice.wav")
