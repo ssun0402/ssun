@@ -2,8 +2,6 @@ import speech_recognition as sr
 from gtts import gTTS
 import playsound
 import time
-
-
     
 # 스피커로부터 텍스트 읽기
 print("음성을 말해주세요!")
@@ -26,8 +24,12 @@ try:
     text = r.recognize_google(audio_data, language = 'ko')
     print("<음성을 문자로 변환한 값을 아래에 표시했습니다.>")
     print(text)
-    print(type(text))
     
+    # 인식된 음성에 대한 대답
+    txt = text + "로 말했습니다."
+    tts_kr = gTTS(txt, lang = 'ko', slow = False)
+    tts_kr.save("voice.wav")
+    playsound.playsound("voice.wav")
     
 # 음성 인식 실패한 경우
 except sr.UnknownValueError:
