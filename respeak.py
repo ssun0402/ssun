@@ -27,7 +27,11 @@ try:
     
 # 음성 인식 실패한 경우
 except sr.UnknownValueError:
-    print("인식 실패") 
+    print("다시 한 번 말씀해주시겠어요?")
+    txt = "다시 한 번 말씀해주시겠어요?"
+    tts_kr = gTTS(txt, lang = 'ko', slow = False)
+    tts_kr.save("voice.wav")
+    playsound.playsound("voice.wav")
     
 # 인식된 음성에 대한 대답
     txt = text + "로 말했습니다."
