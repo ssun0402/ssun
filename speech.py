@@ -20,5 +20,5 @@ except KeyboardInterrupt:
     pass
 
 # 음성 인식 실패한 경우
-except sr.UnknownValyeError:
+except sr.UnknownValueError:
     print("인식 실패")
