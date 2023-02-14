@@ -2,8 +2,8 @@ from gtts import gTTS
 import playsound
 
 def speak_ko():
-    print("음성을 말해주세요!")
-    txt = "음성을 말해주세요!"
+    print("킹받쥬?")
+    txt = "킹받쥬?"
     tts_kr = gTTS(text = txt, lang = 'ko', slow = False)
     tts_kr.save("voice.wav")
     playsound.playsound("voice.wav")
