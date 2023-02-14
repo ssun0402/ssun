@@ -35,7 +35,11 @@ while True:
             playsound.playsound("voice.wav")
             
         elif (text == "음성 인식 꺼줘") :
-            print(text)
+            print("음성인식을 끄겠습니다.")
+            txt = "다시 한 번 말씀해주시겠어요?"
+            tts_kr = gTTS(txt, lang = 'ko', slow = False)
+            tts_kr.save("voice.wav")
+            playsound.playsound("voice.wav")
             pass
         
         else : 
