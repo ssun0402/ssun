@@ -5,13 +5,15 @@ from gtts import gTTS
 import playsound
 import time
 
+print("음성을 입력하세요!")
+
 while True:
     # 음성인식 객체 생성
     r = sr.Recognizer()
 
     with sr.Microphone() as source :
         
-        print("음성을 입력하세요!")
+        
         
         # 마이크로부터 오디오 읽기
         audio_data = r.record(source, duration = 5)
