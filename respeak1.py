@@ -21,7 +21,7 @@ while True:
         # 구글 API로 인식 (하루에 50회 제한)
         text = r.recognize_google(audio_data, language = 'ko')
     
-        if (text == "마이클 젯슨") : 
+        if (text == "마이클 잭슨") : 
             # 스피커로부터 텍스트 읽기
             print("네 음성을 말해주세요!")
             txt = "네 음성을 말해주세요!"
