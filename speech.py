@@ -10,7 +10,7 @@ with sr.Microphone() as source :
     # 마이크로부터 오디오 읽기
     print("음성을 말해주세요!")
     txt = "음성을 말해주세요!"
-    tts_kr = gTTS(speak = txt, lang = 'ko', slow = False)
+    tts_kr = gTTS(txt, language = 'ko', slow = False)
     tts_kr.save("voice.wav")
     playsound.playsound("voice.wav")
     audio_data = r.record(source, duration = 5)
