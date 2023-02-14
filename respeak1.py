@@ -10,7 +10,9 @@ while True:
     r = sr.Recognizer()
 
     with sr.Microphone() as source :
-    
+        
+        print("음성을 입력하세요!")
+        
         # 마이크로부터 오디오 읽기
         audio_data = r.record(source, duration = 5)
     
