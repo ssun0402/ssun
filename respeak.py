@@ -25,15 +25,15 @@ try:
     print("<음성을 문자로 변환한 값을 아래에 표시했습니다.>")
     print(text)
     
-    # 인식된 음성에 대한 대답
+# 음성 인식 실패한 경우
+except sr.UnknownValueError:
+    print("인식 실패") 
+    
+# 인식된 음성에 대한 대답
     txt = text + "로 말했습니다."
     tts_kr = gTTS(txt, lang = 'ko', slow = False)
     tts_kr.save("voice.wav")
-    playsound.playsound("voice.wav")
-    
-# 음성 인식 실패한 경우
-except sr.UnknownValueError:
-    print("인식 실패")    
+    playsound.playsound("voice.wav")  
     
 # Crtl + c 누르면 음성 인식 멈춤
 #except KeyboardInterrupt: 
