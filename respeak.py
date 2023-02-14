@@ -26,8 +26,8 @@ try:
     print(text)
     
     # 인식된 음성에 대한 대답
-    print(text + "로 말했습니다.")
-    txt = text + "로 말했습니다."
+    print(text + "라고 말했습니다.")
+    txt = text + "라고 말했습니다."
     tts_kr = gTTS(txt, lang = 'ko', slow = False)
     tts_kr.save("voice.wav")
     playsound.playsound("voice.wav")
