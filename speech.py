@@ -6,11 +6,19 @@ r = sr.Recognizer()
 with sr.Microphone() as source :
     
     # 마이크로부터 오디오 읽기
-    print("인식중.......")
+    print("음성을 말해주세요!")
     audio_data = r.record(source, duration = 5)
     
-    
+try:
     # 음성을 문자열로 전환
-    text = r.recognize_google(audio_data)
-    print("....음성 데이터 -> 텍스트....")
+    text = r.recognize_google(audio_data, language = 'ko')
+    print("음성을 문자로 변환한 값을 아래에 표시했습니다.")
     print(text)
+    
+# Crtl + c 누르면 음성 인식 멈춤
+except KeyboardInterrupt: 
+    pass
+
+# 음성 인식 실패한 경우
+except sr.UnknownValyeError:
+    print("인식 실패")
