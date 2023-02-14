@@ -25,16 +25,17 @@ try:
     print("<음성을 문자로 변환한 값을 아래에 표시했습니다.>")
     print(text)
     
-# 음성 인식 실패한 경우
-except sr.UnknownValueError:
-    print("다시 한 번 말씀해주시겠어요?")
-    txt = "다시 한 번 말씀해주시겠어요?"
+    # 인식된 음성에 대한 대답
+    print(text + "로 말했습니다.")
+    txt = text + "로 말했습니다."
     tts_kr = gTTS(txt, lang = 'ko', slow = False)
     tts_kr.save("voice.wav")
     playsound.playsound("voice.wav")
     
-# 인식된 음성에 대한 대답
-    txt = text + "로 말했습니다."
+# 음성 인식 실패한 경우
+except sr.UnknownValueError:
+    print("다시 한 번 말씀해주시겠어요?")
+    txt = "다시 한 번 말씀해주시겠어요?"
     tts_kr = gTTS(txt, lang = 'ko', slow = False)
     tts_kr.save("voice.wav")
     playsound.playsound("voice.wav")  
