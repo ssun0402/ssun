@@ -1,4 +1,6 @@
 import speech_recognition as sr
+from gtts import gTTS
+import playsound
 
 # 음성인식 객체 생성
 r = sr.Recognizer()
@@ -7,18 +9,24 @@ with sr.Microphone() as source :
     
     # 마이크로부터 오디오 읽기
     print("음성을 말해주세요!")
+    txt = "음성을 말해주세요!"
+    tts_kr = gTTS(speak = txt, lang = 'ko', slow = False)
+    tts_kr.save("voice.wav")
+    playsound.playsound("voice.wav")
     audio_data = r.record(source, duration = 5)
     
 try:
     # 음성을 문자열로 전환
+    # 구글 API로 인식 (하루에 50회 제한)
     text = r.recognize_google(audio_data, language = 'ko')
-    print("음성을 문자로 변환한 값을 아래에 표시했습니다.")
+    print("<음성을 문자로 변환한 값을 아래에 표시했습니다.>")
     print(text)
     
-# Crtl + c 누르면 음성 인식 멈춤
-except KeyboardInterrupt: 
-    pass
-
 # 음성 인식 실패한 경우
 except sr.UnknownValueError:
-    print("인식 실패")
+    print("인식 실패")    
+    
+# Crtl + c 누르면 음성 인식 멈춤
+#except KeyboardInterrupt: 
+    #pass
+
