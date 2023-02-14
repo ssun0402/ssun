@@ -2,7 +2,10 @@ import speech_recognition as sr
 from gtts import gTTS
 import playsound
 import time
-    
+
+# 음성인식 객체 생성
+r = sr.Recognizer()   
+  
 # 스피커로부터 텍스트 읽기
 print("음성을 말해주세요!")
 txt = "음성을 말해주세요!"
@@ -10,8 +13,7 @@ tts_kr = gTTS(txt, lang = 'ko', slow = False)
 tts_kr.save("voice.wav")
 playsound.playsound("voice.wav")
 
-# 음성인식 객체 생성
-r = sr.Recognizer()    
+   
 
 with sr.Microphone() as source :
     
