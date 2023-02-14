@@ -8,14 +8,14 @@ r = sr.Recognizer()
 
 print("음성을 말해주세요!")
     
-
+# 스피커로부터 텍스트 읽기
+txt = "음성을 말해주세요!"
+tts_kr = gTTS(txt, lang = 'ko', slow = False)
+tts_kr.save("voice.wav")
+playsound.playsound("voice.wav")
     
 with sr.Microphone() as source :
-    # 스피커로부터 텍스트 읽기
-    txt = "음성을 말해주세요!"
-    tts_kr = gTTS(txt, lang = 'ko', slow = False)
-    tts_kr.save("voice.wav")
-    playsound.playsound("voice.wav")
+    
     # 마이크로부터 오디오 읽기
     audio_data = r.record(source, duration = 5)
     
@@ -26,7 +26,6 @@ try:
     print("<음성을 문자로 변환한 값을 아래에 표시했습니다.>")
     print(text)
     print(type(text))
-    
     
     
 # 음성 인식 실패한 경우
