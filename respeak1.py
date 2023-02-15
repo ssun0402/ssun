@@ -15,7 +15,7 @@ def speak_jetson():
         
         # 마이크로부터 오디오 읽기
         print('"젯슨"을 불러주세요!')
-        audio_data = r.record(source, duration = 4)
+        audio_data = r.record(source, duration = 3)
         
         try:
             # 음성을 문자열로 전환
@@ -31,13 +31,8 @@ def speak_jetson():
                 playsound.playsound("voice.wav")
                 return respeak()
             
-            elif (text == "음성 인식 꺼 줘") | (text == "음성인식 꺼 줘") :
-                print("음성인식을 끄겠습니다.")
-                txt = "음성인식을 끄겠습니다."
-                tts_kr = gTTS(txt, lang = 'ko', slow = False)
-                tts_kr.save("voice.wav")
-                playsound.playsound("voice.wav")
-                pass
+            elif (text == "종료") | (text == "종료") :
+                return done_respeak()
             
             else:
                 return speak_jetson()
@@ -80,10 +75,19 @@ def respeak():
         playsound.playsound("voice.wav")
         return respeak()
 
+# 음성 인식 종료
+def done_respeak():
+    print("음성인식을 끄겠습니다.")
+    txt = "음성인식을 끄겠습니다."
+    tts_kr = gTTS(txt, lang = 'ko', slow = False)
+    tts_kr.save("voice.wav")
+    playsound.playsound("voice.wav")
+
 try:  
     while True :
         speak_jetson()
         respeak()
+        done_respeak()
         
 # Crtl + c 누르면 음성 인식 멈춤
 except KeyboardInterrupt: 
