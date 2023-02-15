@@ -21,6 +21,7 @@ def speak_jetson():
             # 음성을 문자열로 전환
             # 구글 API로 인식 (하루에 50회 제한)
             text = r.recognize_google(audio_data, language = 'ko')
+            print(text)
             
             if(text == "잭슨") :
                 print("네! 부르셨나요?")
