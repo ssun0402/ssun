@@ -76,11 +76,12 @@ def respeak():
 
 # 음성 인식 종료
 def done_respeak():
-    print("음성인식을 끄겠습니다.")
-    txt = "음성인식을 끄겠습니다."
+    print("음성인식을 종료합니다.")
+    txt = "음성인식을 종료합니다."
     tts_kr = gTTS(txt, lang = 'ko', slow = False)
     tts_kr.save("voice.wav")
     playsound.playsound("voice.wav")
+    pass
 
 try:  
     while True :
