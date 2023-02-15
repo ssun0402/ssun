@@ -15,7 +15,7 @@ def speak_jetson():
         
         # 마이크로부터 오디오 읽기
         print('"젯슨"을 불러주세요!')
-        audio_data = r.record(source, duration = 3)
+        audio_data = r.record(source, duration = 4)
         
         try:
             # 음성을 문자열로 전환
