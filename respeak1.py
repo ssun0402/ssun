@@ -39,7 +39,7 @@ def speak_jetson():
                 pass
         # 음성 인식 실패한 경우
         except sr.UnknownValueError:
-            return respeak()
+            return speak_jetson()
         
 def respeak():
     # 음성인식 객체 생성
