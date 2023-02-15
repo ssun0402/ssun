@@ -1,11 +1,10 @@
-# 젯슨 부르는 코드
+# 음성 인식 완성 코드
 
 import speech_recognition as sr
 from gtts import gTTS
 import playsound
 
 # 이름 인식 코드
-# 음성인식 끝내는 코드
 def speak_jetson():
     
     # 음성인식 객체 생성
@@ -18,10 +17,10 @@ def speak_jetson():
         audio_data = r.record(source, duration = 3)
         
         try:
-            # 음성을 문자열로 전환
             # 구글 API로 인식 (하루에 50회 제한)
             text = r.recognize_google(audio_data, language = 'ko')
             
+            # 이름 인식 -> 음성 인식 코드로 넘어감
             if(text == "잭슨") :
                 print("네! 부르셨나요?")
                 txt = "네! 부르셨나요?"
@@ -30,6 +29,7 @@ def speak_jetson():
                 playsound.playsound("voice.wav")
                 return respeak()
             
+            # 다른 단어 인식 -> 다시 이름 부르는 코드로 돌아감
             else:
                 return speak_jetson()
             
@@ -39,6 +39,7 @@ def speak_jetson():
 
 # 음성 인식    
 def respeak():
+    
     # 음성인식 객체 생성
     r = sr.Recognizer()
 
