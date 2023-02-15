@@ -30,9 +30,6 @@ def speak_jetson():
                 playsound.playsound("voice.wav")
                 return respeak()
             
-            elif (text == "종료") | (text == "종료") :
-                return done_respeak()
-            
             else:
                 return speak_jetson()
             
@@ -74,19 +71,11 @@ def respeak():
         playsound.playsound("voice.wav")
         return respeak()
 
-# 음성 인식 종료
-def done_respeak():
-    print("음성인식을 종료합니다.")
-    txt = "음성인식을 종료합니다."
-    tts_kr = gTTS(txt, lang = 'ko', slow = False)
-    tts_kr.save("voice.wav")
-    playsound.playsound("voice.wav")
-
 try:  
     while True :
         speak_jetson()
         respeak()
         
 # Crtl + c 누르면 음성 인식 멈춤
-except done_respeak(): 
+except KeyboardInterrupt: 
     pass
