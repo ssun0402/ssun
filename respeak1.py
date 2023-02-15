@@ -21,23 +21,26 @@ def speak_jetson():
         # 구글 API로 인식 (하루에 50회 제한)
         text = r.recognize_google(audio_data, language = 'ko')
         
-        if(text == "잭슨") :
+        try:
             
-            # 스피커로부터 텍스트 읽기
-            print("네! 음성을 말해주세요!")
-            txt = "네! 음성을 말해주세요!"
-            tts_kr = gTTS(txt, lang = 'ko', slow = False)
-            tts_kr.save("voice.wav")
-            playsound.playsound("voice.wav")
+            if(text == "잭슨") :
+                print("네! 음성을 말해주세요!")
+                txt = "네! 음성을 말해주세요!"
+                tts_kr = gTTS(txt, lang = 'ko', slow = False)
+                tts_kr.save("voice.wav")
+                playsound.playsound("voice.wav")
+                return respeak()
+            
+            elif (text == "음성 인식 꺼줘") :
+                print("음성인식을 끄겠습니다.")
+                txt = "음성인식을 끄겠습니다."
+                tts_kr = gTTS(txt, lang = 'ko', slow = False)
+                tts_kr.save("voice.wav")
+                playsound.playsound("voice.wav")
+                pass
+        # 음성 인식 실패한 경우
+        except sr.UnknownValueError:
             return respeak()
-            
-        elif (text == "음성 인식 꺼줘") :
-            print("음성인식을 끄겠습니다.")
-            txt = "음성인식을 끄겠습니다."
-            tts_kr = gTTS(txt, lang = 'ko', slow = False)
-            tts_kr.save("voice.wav")
-            playsound.playsound("voice.wav")
-            pass
         
 def respeak():
     # 음성인식 객체 생성
