@@ -81,14 +81,12 @@ def done_respeak():
     tts_kr = gTTS(txt, lang = 'ko', slow = False)
     tts_kr.save("voice.wav")
     playsound.playsound("voice.wav")
-    pass
 
 try:  
     while True :
         speak_jetson()
         respeak()
-        done_respeak()
         
 # Crtl + c 누르면 음성 인식 멈춤
-except KeyboardInterrupt: 
+except done_respeak(): 
     pass
