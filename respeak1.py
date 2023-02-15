@@ -37,10 +37,15 @@ def speak_jetson():
                 tts_kr.save("voice.wav")
                 playsound.playsound("voice.wav")
                 pass
+            
+            else:
+                return speak_jetson()
+            
         # 음성 인식 실패한 경우
         except sr.UnknownValueError:
             return speak_jetson()
-        
+
+# 음성 인식    
 def respeak():
     # 음성인식 객체 생성
     r = sr.Recognizer()
