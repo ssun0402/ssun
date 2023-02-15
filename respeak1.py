@@ -30,7 +30,7 @@ def speak_jetson():
                 playsound.playsound("voice.wav")
                 return respeak()
             
-            elif (text == "음성 인식 꺼 줘") :
+            elif (text == "음성 인식 꺼 줘") | (text == "음성인식 꺼줘") :
                 print("음성인식을 끄겠습니다.")
                 txt = "음성인식을 끄겠습니다."
                 tts_kr = gTTS(txt, lang = 'ko', slow = False)
