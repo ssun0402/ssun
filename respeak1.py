@@ -23,8 +23,8 @@ def speak_jetson():
             text = r.recognize_google(audio_data, language = 'ko')
             
             if(text == "잭슨") :
-                print("네! 음성을 말해주세요!")
-                txt = "네! 음성을 말해주세요!"
+                print("네! 부르셨나요?")
+                txt = "네! 부르셨나요?"
                 tts_kr = gTTS(txt, lang = 'ko', slow = False)
                 tts_kr.save("voice.wav")
                 playsound.playsound("voice.wav")
