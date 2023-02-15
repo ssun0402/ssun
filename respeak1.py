@@ -15,13 +15,12 @@ def speak_jetson():
         
         # 마이크로부터 오디오 읽기
         print('"젯슨"을 불러주세요!')
-        audio_data = r.record(source, duration = 2)
-        
-        # 음성을 문자열로 전환
-        # 구글 API로 인식 (하루에 50회 제한)
-        text = r.recognize_google(audio_data, language = 'ko')
+        audio_data = r.record(source, duration = 3)
         
         try:
+            # 음성을 문자열로 전환
+            # 구글 API로 인식 (하루에 50회 제한)
+            text = r.recognize_google(audio_data, language = 'ko')
             
             if(text == "잭슨") :
                 print("네! 음성을 말해주세요!")
