@@ -29,7 +29,7 @@ def speak_jetson():
             tts_kr = gTTS(txt, lang = 'ko', slow = False)
             tts_kr.save("voice.wav")
             playsound.playsound("voice.wav")
-            return respeak
+            return respeak()
             
         elif (text == "음성 인식 꺼줘") :
             print("음성인식을 끄겠습니다.")
@@ -61,7 +61,7 @@ def respeak():
         tts_kr = gTTS(txt, lang = 'ko', slow = False)
         tts_kr.save("voice.wav")
         playsound.playsound("voice.wav")
-        return speak_jetson
+        return speak_jetson()
     
     # 음성 인식 실패한 경우
     except sr.UnknownValueError:
@@ -70,4 +70,13 @@ def respeak():
         tts_kr = gTTS(txt, lang = 'ko', slow = False)
         tts_kr.save("voice.wav")
         playsound.playsound("voice.wav")
-        return respeak
+        return respeak()
+
+try:  
+    while True :
+        speak_jetson()
+        respeak()
+        
+# Crtl + c 누르면 음성 인식 멈춤
+except KeyboardInterrupt: 
+    pass
