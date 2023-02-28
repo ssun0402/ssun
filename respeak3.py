@@ -74,7 +74,7 @@ def respeak():
         
         # 문자열을 순회하면서 location이 포함된 단어를 찾음
         for word in text :
-            for loc in word :
+            for loc in location :
                 if loc in word :
                     # location의 단어를 제거한 후 저장
                     text_division.append(word.replace(loc, ""))
