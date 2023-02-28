@@ -61,8 +61,9 @@ def respeak():
         tts_kr = gTTS(txt, lang = 'ko', slow = False)
         tts_kr.save("voice.wav")
         playsound.playsound("voice.wav")
-        
+
         # 분리할 조사
+        location
         location = ['으로', '로', '이에게', '에게', '을', '를', '이한테' '한테', '에']
         
         # 문자열을 띄어쓰기 기준으로 분리
@@ -70,19 +71,19 @@ def respeak():
         
         # 조사가 포함된 단어를 찾은 후 조사 제거 후 리스트로 저장
         # location 단어가 포함된 단어들을 저장할 리스트
-        result = []
+        text_division = []
         
         # 문자열을 순회하면서 location이 포함된 단어를 찾음
         for word in text :
             for loc in word :
                 if loc in word :
                     # location의 단어를 제거한 후 저장
-                    result.append(word.replace(loc, ""))
+                    text_division.append(word.replace(loc, ""))
                     # 613으로 같은 경우 '으로'와 '로'가 포함되어 2번 결과가 나오게 됨
                     # break문을 통해 겹치는 단어는 표시 X
                     break
         # 결과 출력
-        print(result)
+        print(text_division)
         
         return speak_jetson()
     
