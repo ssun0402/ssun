@@ -63,8 +63,8 @@ def respeak():
         playsound.playsound("voice.wav")
 
         # 분리할 조사
-        location
         location = ['으로', '로', '이에게', '에게', '을', '를', '이한테' '한테', '에']
+        print(location)
         
         # 문자열을 띄어쓰기 기준으로 분리
         text = text.split()
