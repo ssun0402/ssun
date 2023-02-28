@@ -4,9 +4,6 @@ import speech_recognition as sr
 from gtts import gTTS
 import playsound
 
-# 분리할 조사
-location = ['으로', '로', '이에게', '에게', '을', '를', '이한테' '한테', '에']
-
 # 이름 인식 코드
 def speak_jetson():
     
@@ -64,6 +61,9 @@ def respeak():
         tts_kr = gTTS(txt, lang = 'ko', slow = False)
         tts_kr.save("voice.wav")
         playsound.playsound("voice.wav")
+        
+        # 분리할 조사
+        location = ['으로', '로', '이에게', '에게', '을', '를', '이한테' '한테', '에']
         
         # 문자열을 띄어쓰기 기준으로 분리
         text = text.split()
