@@ -7,10 +7,6 @@ import playsound
 # 분리할 조사
 location = ['으로', '로', '이에게', '에게', '을', '를', '이한테' '한테', '에']
 
-# 조사가 포함된 단어를 찾은 후 조사 제거 후 리스트로 저장
-# location 단어가 포함된 단어들을 저장할 리스트
-result = []
-
 # 이름 인식 코드
 def speak_jetson():
     
@@ -71,6 +67,10 @@ def respeak():
         
         # 문자열을 띄어쓰기 기준으로 분리
         text = text.split()
+        
+        # 조사가 포함된 단어를 찾은 후 조사 제거 후 리스트로 저장
+        # location 단어가 포함된 단어들을 저장할 리스트
+        result = []
         
         # 문자열을 순회하면서 location이 포함된 단어를 찾음
         for word in text :
