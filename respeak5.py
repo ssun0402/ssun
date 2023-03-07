@@ -99,19 +99,19 @@ def respeak():
         print('이름은', r_name)
         print('장소는', r_place)
         
-        for i, word in enumerate(r_name) :
+        for k, word in enumerate(r_name) :
             if word in name :
                 if word == '희웅' :
-                    r_name[i] = 'hee ung'
+                    r_name[k] = 'hee ung'
             
                 elif word == '명현' :
-                    r_name[i] = 'myung hyun'
+                    r_name[k] = 'myung hyun'
             
                 elif word == '혜선' :
-                    r_name[i] = 'hye seon'
+                    r_name[k] = 'hye seon'
             
                 elif word == '태언' :
-                    r_name[i] = 'tae eon'
+                    r_name[k] = 'tae eon'
             
         # 결과 출력
         print(r_name)
