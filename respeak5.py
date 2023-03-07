@@ -1,4 +1,4 @@
-# 음성 인식 텍스트 분리 후 이름 부분 영어로 변경
+# 음성 인식 텍스트 분리 후 이름 부분 영어로 변경 후 이름, 장소 분리
 
 import speech_recognition as sr
 from gtts import gTTS
