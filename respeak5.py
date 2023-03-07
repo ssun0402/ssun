@@ -83,39 +83,41 @@ def respeak():
                     break
                 
         # 분리된 텍스트 중 이름 부분을 영어로 변경
-        name = ['명현', '희웅', '혜선', '태언']
+        name = ['명현', '태언', '혜선', '희웅']
+        
+        for i, word in enumerate(text_division) :
+            if word in name :
+                if word == '희웅' :
+                    text_division[i] = 'hee ung'
+            
+                elif word == '명현' :
+                    text_division[i] = 'myung hyun'
+            
+                elif word == '혜선' :
+                    text_division[i] = 'hye seon'
+            
+                elif word == '태언' :
+                    text_division[i] = 'tae eon'
+            
+        # 결과 출력
+        print(text_division)
+        
+        # 분리된 텍스트 중 이름 부분을 영어로 변경
+        names = ['myung hyun', 'hee ung', 'hye seon', 'tae eon']
         place = ['613', '620', '랩실', '물건']
         r_name = []
         r_place = []
-        k_name = []
         # 결과 출력
         for i in range(len(text_division)) :
-            for j in range(len(name)) :
-                if name[j] == text_division[i] :
-                    k_name = name[j]
+            for j in range(len(names)) :
+                if names[j] == text_division[i] :
+                    r_name = names[j]
                 else : 
                     for x in range(len(place)) :
                         if place[x] == text_division[i] :
                             r_place = place[x]
         print('이름은', r_name)
         print('장소는', r_place)
-        
-        for k, word in enumerate(k_name) :
-            if word in name :
-                if word == '희웅' :
-                    r_name[k] = 'hee ung'
-            
-                elif word == '명현' :
-                    r_name[k] = 'myung hyun'
-            
-                elif word == '혜선' :
-                    r_name[k] = 'hye seon'
-            
-                elif word == '태언' :
-                    r_name[k] = 'tae eon'
-            
-        # 결과 출력
-        print(r_name)
         
         return speak_jetson()
     
