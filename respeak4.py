@@ -86,18 +86,18 @@ def respeak():
         name = ['명현', '태언', '혜선', '희웅']
         
         for i, word in enumerate(text_division) :
-            if word == '희웅' :
-                text_division[i] = 'hee ung'
+            if word in name :
+                if word == '희웅' :
+                    text_division[i] = 'hee ung'
             
-            elif word in name :
-                if word == '명현' :
+                elif word == '명현' :
                     text_division[i] = 'myung hyun'
             
-            elif word == '혜선' :
-                text_division[i] = 'hye seon'
+                elif word == '혜선' :
+                    text_division[i] = 'hye seon'
             
-            elif word == '태언' :
-                text_division[i] = 'tae eon'
+                elif word == '태언' :
+                    text_division[i] = 'tae eon'
             
         # 결과 출력
         print(text_division)
