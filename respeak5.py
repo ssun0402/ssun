@@ -87,11 +87,12 @@ def respeak():
         place = ['613', '620', '랩실', '물건']
         r_name = []
         r_place = []
+        k_name = []
         # 결과 출력
         for i in range(len(text_division)) :
             for j in range(len(name)) :
                 if name[j] == text_division[i] :
-                    r_name = name[j]
+                    k_name = name[j]
                 else : 
                     for x in range(len(place)) :
                         if place[x] == text_division[i] :
@@ -99,7 +100,7 @@ def respeak():
         print('이름은', r_name)
         print('장소는', r_place)
         
-        for k, word in enumerate(r_name) :
+        for k, word in enumerate(k_name) :
             if word in name :
                 if word == '희웅' :
                     r_name[k] = 'hee ung'
